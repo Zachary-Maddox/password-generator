@@ -1,6 +1,11 @@
 // Assignment code here
-var chars =
-    "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var chars = "";
+
+var upperCaseChars = "ABCEDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
+var numericChars = "0123456789";
+var symbolsChars = "!@#$%^&*()";
+
 var password = "";
 
 function generatePassword() {
@@ -9,11 +14,40 @@ function generatePassword() {
         passLength = getPassLength();
     }
     var criteria = getCriteria();
-    //       if(criteria == true){
-    // for (var i = 0; i <= passLength; i++)
-    // var randomNumber = Math.floor(Math.random() * chars.Length);
-    // password += chars.substring(randomNumber, randomNumber +1)
-    //       }
+
+    if (
+        criteria.upperCase === false &&
+        criteria.lowerCase === false &&
+        criteria.numeric === false &&
+        criteria.symbols === false
+    ) {
+        alert("You must choose at least one Character type, Please try again.");
+        return "Password not generated!";
+    }
+
+    if (criteria.upperCase === true) {
+        chars += upperCaseChars;
+        console.log("chars " + chars);
+    }
+    if (criteria.lowerCase === true) {
+        chars += lowerCaseChars;
+        console.log("chars " + chars);
+    }
+    if (criteria.numeric === true) {
+        chars += numericChars;
+        console.log("chars " + chars);
+    }
+    if (criteria.symbols === true) {
+        chars += symbolsChars;
+        console.log("chars " + chars);
+    }
+
+    
+        for (var i = 0; i <= passLength; i++){
+            var randomNumber = Math.floor(Math.random() * chars.length);
+        password += chars[randomNumber];
+        }
+        return password;
 }
 
 function getPassLength() {
