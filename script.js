@@ -5,10 +5,10 @@ var upperCaseChars = "ABCEDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
 var numericChars = "0123456789";
 var symbolsChars = "!@#$%^&*()";
-
 var password = "";
 
 function generatePassword() {
+
     var passLength = getPassLength();
     while (passLength < 8 || passLength > 128) {
         passLength = getPassLength();
@@ -42,12 +42,11 @@ function generatePassword() {
         console.log("chars " + chars);
     }
 
-    
-        for (var i = 0; i <= passLength; i++){
-            var randomNumber = Math.floor(Math.random() * chars.length);
+    for (var i = 0; i <= passLength; i++) {
+        var randomNumber = Math.floor(Math.random() * chars.length);
         password += chars[randomNumber];
-        }
-        return password;
+    }
+    return password;
 }
 
 function getPassLength() {
@@ -79,9 +78,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+    document.getElementById("password").value = ""
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-
+passwordText.value = "";
     passwordText.value = password;
 }
 
