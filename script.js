@@ -8,7 +8,7 @@ var symbolsChars = "!@#$%^&*()";
 var password = "";
 
 function generatePassword() {
-
+    password = "";
     var passLength = getPassLength();
     while (passLength < 8 || passLength > 128) {
         passLength = getPassLength();
@@ -78,10 +78,10 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-    document.getElementById("password").value = ""
+    document.getElementById("password").value = "";
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-passwordText.value = "";
+    passwordText.value = "";
     passwordText.value = password;
 }
 
